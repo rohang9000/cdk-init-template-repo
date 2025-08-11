@@ -1,0 +1,21 @@
+{
+  "name": "cdk-js-app",
+  "version": "0.1.0",
+  "bin": {
+    "cdk-js-app": "bin/app.js"
+  },
+  "scripts": {
+    "build": "echo 'No build step needed for plain JS'",
+    "watch": "nodemon bin/app.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "2.139.0",
+    "constructs": "^10.3.0"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0",
+    "aws-cdk-lib/assertions": "2.139.0"
+  },
+  "type": "module"
+}

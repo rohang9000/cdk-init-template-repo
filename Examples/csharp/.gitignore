@@ -1,0 +1,6 @@
+bin/
+obj/
+cdk.out/
+*.user
+*.suo
+*.DotSettings.user
