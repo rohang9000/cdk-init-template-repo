@@ -1,12 +1,12 @@
-package com.myorg;
+package com.nexustech;
 
 import software.amazon.awscdk.App;
 
-public final class %name.PascalCased%App {
+public final class NexusCloudPlatformApp {
     public static void main(final String[] args) {
         App app = new App();
 
-        new %name.PascalCased%Stack(app, "%stackname%");
+        new NexusCloudPlatformStack(app, "NexusCloudPlatformStack");
 
         app.synth();
     }

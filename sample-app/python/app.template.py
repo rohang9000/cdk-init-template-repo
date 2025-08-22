@@ -2,10 +2,10 @@
 
 import aws_cdk as cdk
 
-from %name.PythonModule%.%name.PythonModule%_stack import %name.PascalCased%Stack
+from quantum_analytics.quantum_analytics_stack import QuantumAnalyticsStack
 
 
 app = cdk.App()
-%name.PascalCased%Stack(app, "%stackname%")
+QuantumAnalyticsStack(app, "QuantumAnalyticsStack")
 
 app.synth()
