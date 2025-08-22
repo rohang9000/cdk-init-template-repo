@@ -1,4 +1,4 @@
-module mycdkapp
+module nexus-cloud-platform
 
 go 1.21
 

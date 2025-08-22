@@ -1,4 +1,4 @@
-package com.example;
+package com.nexustech;
 
 import software.amazon.awscdk.Stack;
 import software.amazon.awscdk.StackProps;
@@ -8,15 +8,15 @@ import software.amazon.awscdk.services.sns.Topic;
 import software.amazon.awscdk.services.sns.subscriptions.SqsSubscription;
 import software.constructs.Construct;
 
-public class MyStack extends Stack {
-    public MyStack(final Construct scope, final String id, final StackProps props) {
+public class CloudInfraStack extends Stack {
+    public CloudInfraStack(final Construct scope, final String id, final StackProps props) {
         super(scope, id, props);
 
-        Queue queue = Queue.Builder.create(this, "MyJavaQueue")
+        Queue queue = Queue.Builder.create(this, "ProcessingQueue")
             .visibilityTimeout(Duration.seconds(300))
             .build();
 
-        Topic topic = Topic.Builder.create(this, "MyJavaTopic").build();
+        Topic topic = Topic.Builder.create(this, "NotificationTopic").build();
 
         topic.addSubscription(new SqsSubscription(queue));
     }

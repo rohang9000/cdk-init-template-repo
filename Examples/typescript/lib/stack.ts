@@ -4,15 +4,15 @@ import * as subs from 'aws-cdk-lib/aws-sns-subscriptions';
 import * as sqs from 'aws-cdk-lib/aws-sqs';
 import { Construct } from 'constructs';
 
-export class MyAppStack extends Stack {
+export class QuantumAnalyticsStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
-    const queue = new sqs.Queue(this, 'MyAppQueue', {
+    const queue = new sqs.Queue(this, 'DataProcessingQueue', {
       visibilityTimeout: Duration.seconds(300)
     });
 
-    const topic = new sns.Topic(this, 'MyAppTopic');
+    const topic = new sns.Topic(this, 'DataNotificationTopic');
 
     topic.addSubscription(new subs.SqsSubscription(queue));
   }

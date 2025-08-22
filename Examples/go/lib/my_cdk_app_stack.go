@@ -9,18 +9,18 @@ import (
     "github.com/aws/jsii-runtime-go"
 )
 
-type MyCdkAppStackProps struct {
+type NexusCloudStackProps struct {
     awscdk.StackProps
 }
 
-func NewMyCdkAppStack(scope constructs.Construct, id string, props *awscdk.StackProps) awscdk.Stack {
+func NewNexusCloudStack(scope constructs.Construct, id string, props *awscdk.StackProps) awscdk.Stack {
     stack := awscdk.NewStack(scope, &id, props)
 
-    queue := awssqs.NewQueue(stack, jsii.String("MyAppQueue"), &awssqs.QueueProps{
+    queue := awssqs.NewQueue(stack, jsii.String("CloudProcessingQueue"), &awssqs.QueueProps{
         VisibilityTimeout: awscdk.Duration_Seconds(jsii.Number(300)),
     })
 
-    topic := awssns.NewTopic(stack, jsii.String("MyAppTopic"), nil)
+    topic := awssns.NewTopic(stack, jsii.String("CloudNotificationTopic"), nil)
 
     topic.AddSubscription(awssnssubscriptions.NewSqsSubscription(queue, nil))
 

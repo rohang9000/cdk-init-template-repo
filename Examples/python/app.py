@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import aws_cdk as cdk
-from my_cdk_project.my_cdk_project_stack import MyCdkProjectStack
+from my_cdk_project.my_cdk_project_stack import AnalyticsInfraStack
 
 app = cdk.App()
-MyCdkProjectStack(app, "MyCdkProjectStack")
+AnalyticsInfraStack(app, "AnalyticsInfraStack")
 app.synth()

@@ -3,19 +3,19 @@ using Amazon.CDK.AWS.SQS;
 using Amazon.CDK.AWS.SNS;
 using Amazon.CDK.AWS.SNS.Subscriptions;
 
-namespace MyCdkApp
+namespace ApexCloudSuite
 {
-    public class MyCdkAppStack : Stack
+    public class ApexInfraStack : Stack
     {
-        internal MyCdkAppStack(Construct scope, string id, IStackProps? props = null)
+        internal ApexInfraStack(Construct scope, string id, IStackProps? props = null)
             : base(scope, id, props)
         {
-            var queue = new Queue(this, "MyAppQueue", new QueueProps
+            var queue = new Queue(this, "ProcessingQueue", new QueueProps
             {
                 VisibilityTimeout = Duration.Seconds(300)
             });
 
-            var topic = new Topic(this, "MyAppTopic");
+            var topic = new Topic(this, "NotificationTopic");
 
             topic.AddSubscription(new SqsSubscription(queue));
         }
